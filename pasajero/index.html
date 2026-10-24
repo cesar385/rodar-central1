@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f6fde">
+<title>Rodar · Pedí tu viaje</title>
+<link rel="manifest" href="../manifest-pasajero.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="../css/app.css">
+<style>#map{height:260px;border-radius:12px}.svc{border:2px solid var(--line);border-radius:10px;padding:10px;cursor:pointer;display:flex;justify-content:space-between}.svc.on{border-color:var(--brand);background:#eef4ff}.stars button{font-size:28px;background:none;border:0;cursor:pointer}</style>
+</head>
+<body>
+<div class="app">
+  <header style="background:var(--brand)"><b class="grow" id="title">Rodar</b><small>Tu viaje a un toque</small></header>
+  <main id="main">
+    <div id="notes"></div>
+    <div id="map"></div>
+    <form id="f" class="card">
+      <label>¿Dónde te buscamos?</label><div class="row"><input name="origin" required class="grow" style="width:auto" placeholder="Calle y número"><button type="button" class="btn sm sec" id="gps">📍 Mi ubicación</button></div>
+      <label>¿A dónde vas?</label><input name="destination" placeholder="Destino (opcional)">
+      <label>Servicio</label><div id="svcs" class="grid" style="gap:8px"></div>
+      <label>Tu nombre</label><input name="customer_name" required>
+      <label>Tu teléfono</label><input name="customer_phone" required placeholder="+549345...">
+      <label>Forma de pago</label><select name="payment_method" id="pay"><option value="cash">Efectivo</option></select>
+      <label>Código de descuento</label><input name="coupon" placeholder="Opcional">
+      <label>Nota para el conductor</label><input name="notes" placeholder="Ej: casa con portón verde">
+      <button class="btn big" style="margin-top:14px" id="send">Pedir viaje</button>
+    </form>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/ui.js"></script>
+<script src="../js/rides.js"></script>
+<script src="pasajero.js"></script>
+</body>
+</html>

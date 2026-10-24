@@ -1,0 +1,8 @@
+# Copiá este archivo como hubspot.config.yml (NO lo subas a GitHub: está en .gitignore)
+# o generalo con:  npx @hubspot/cli auth
+defaultPortal: rodar
+portals:
+  - name: rodar
+    portalId: 12345678        # tu Hub ID (arriba a la derecha en HubSpot)
+    authType: personalaccesskey
+    personalAccessKey: "PEGAR_AQUI"

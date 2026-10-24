@@ -1,0 +1,16 @@
+<!-- Opcional: pegá este bloque en tu app de pasajeros si además querés que cada pedido
+     cree un envío en un FORMULARIO de HubSpot (útil si no usás la Edge Function).
+     Reemplazá PORTAL_ID y FORM_GUID (HubSpot → Marketing → Formularios → Compartir → ID). -->
+<script>
+window.enviarAHubSpot = function (pedido) {
+  const PORTAL_ID = "12345678", FORM_GUID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+  const [firstname, ...ap] = (pedido.customer_name || "").split(" ");
+  return fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_GUID}`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fields: [
+      { name: "firstname", value: firstname }, { name: "lastname", value: ap.join(" ") },
+      { name: "phone", value: pedido.customer_phone }, { name: "message", value: `${pedido.origin} → ${pedido.destination || ""}` }
+    ], context: { pageUri: location.href, pageName: document.title } })
+  });
+};
+</script>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1b2333">
+<title>Rodar · Conductor</title>
+<link rel="manifest" href="../manifest-conductor.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="../css/app.css">
+<style>#map{height:230px;border-radius:12px}.sw{display:flex;align-items:center;gap:10px;font-weight:700}.offer{border:3px solid var(--warn);animation:p 1s infinite alternate}@keyframes p{to{border-color:#fff}}</style>
+</head>
+<body>
+<div class="app">
+  <header><b class="grow" id="title">Rodar · Conductor</b><span id="who" class="muted"></span><button class="btn ghost sm" id="logout" hidden style="color:#fff">Salir</button></header>
+  <main>
+    <div class="card row"><div class="sw grow"><span id="stLabel">Desconectado</span></div><button class="btn" id="toggle">Conectarme</button></div>
+    <div id="notes"></div>
+    <div id="trip"></div>
+    <div id="map"></div>
+    <div class="card"><div class="tabs" id="tabs"><button data-t="free" class="on">Pedidos libres</button><button data-t="hist">Mis viajes de hoy</button><button data-t="acc">Mi cuenta</button></div><div id="panel"></div></div>
+    <a class="btn danger big" id="sos" style="text-align:center;text-decoration:none">SOS</a>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/ui.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/rides.js"></script>
+<script src="conductor.js"></script>
+</body>
+</html>

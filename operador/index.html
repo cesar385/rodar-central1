@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rodar · Operador</title>
+<link rel="manifest" href="../manifest-operador.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="../css/app.css">
+<style>
+  .op{display:grid;grid-template-columns:340px 1fr 380px;gap:12px;padding:12px;height:calc(100vh - 54px)}
+  .op>section{overflow:auto}
+  #map{height:100%;min-height:380px;border-radius:12px}
+  .ord{border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px;background:#fff}
+  .ord.new{border-left:4px solid var(--warn)}
+  @media(max-width:1100px){.op{grid-template-columns:1fr;height:auto}#map{height:360px}}
+</style>
+</head>
+<body>
+<div class="top"><strong class="grow" id="title">Rodar · Operador</strong>
+  <label class="row" style="gap:6px;margin:0"><input type="checkbox" id="auto" style="width:auto"> Despacho automático</label>
+  <span class="muted" id="me"></span><button class="btn ghost sm" id="logout" hidden>Salir</button></div>
+<div class="op">
+  <section class="card">
+    <h2>Nuevo pedido</h2>
+    <form id="f">
+      <label>Teléfono del cliente</label><input name="customer_phone" required placeholder="+549345...">
+      <label>Nombre</label><input name="customer_name" required>
+      <label>Origen (dirección o clic en el mapa)</label><div class="row"><input name="origin" required class="grow" style="width:auto"><button type="button" class="btn sm sec" id="geoO">📍</button></div>
+      <label>Destino</label><div class="row"><input name="destination" class="grow" style="width:auto"><button type="button" class="btn sm sec" id="geoD">📍</button></div>
+      <label>Servicio</label><select name="service_id" id="svc"></select>
+      <label>Forma de pago</label><select name="payment_method"><option value="cash">Efectivo</option><option value="mercadopago">Mercado Pago</option><option value="transfer">Transferencia</option><option value="account">Cuenta corriente</option></select>
+      <label>Programar para (opcional)</label><input name="scheduled_at" type="datetime-local">
+      <label>Notas para el conductor</label><input name="notes">
+      <p><b id="est">Precio estimado: -</b></p>
+      <button class="btn big">Crear pedido</button>
+    </form>
+  </section>
+  <section><div id="map"></div></section>
+  <section class="card">
+    <div class="tabs" id="tabs"></div>
+    <div id="list"></div>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/ui.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/rides.js"></script>
+<script src="operador.js"></script>
+</body>
+</html>

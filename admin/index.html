@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rodar · Panel de control</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="logo"><i>R</i><span id="brandName">Rodar</span></div>
+    <a href="#dashboard">Información de empresa</a>
+    <div class="grp">Análisis</div>
+    <a class="sub" href="#analytics/gmv">Valor bruto (GMV)</a>
+    <a class="sub" href="#analytics/revenue">Ingresos totales</a>
+    <a class="sub" href="#analytics/statuses">Estados de pedidos</a>
+    <a class="sub" href="#analytics/assigned-missed">Asignados vs. perdidos</a>
+    <a class="sub" href="#analytics/median-response">Respuesta mediana</a>
+    <a class="sub" href="#analytics/response-waiting">Respuesta vs. espera</a>
+    <a class="sub" href="#analytics/sources">Origen de reservas</a>
+    <a class="sub" href="#analytics/coupons">Cupones de referidos</a>
+    <a class="sub" href="#analytics/pickups">Puntos de recogida</a>
+    <a href="#reports">Reportes</a>
+    <div class="grp">Historial de pedidos</div>
+    <a class="sub" href="#orders/customers">Clientes</a>
+    <a class="sub" href="#orders/drivers">Conductores</a>
+    <a class="sub" href="#orders/all">Todos los pedidos</a>
+    <div class="grp">Conductores</div>
+    <a class="sub" href="#drivers">Administrar conductores</a>
+    <a class="sub" href="#driver-plans">Planes de suscripción</a>
+    <a class="sub" href="#driver-levels">Niveles de conductores</a>
+    <div class="grp">Equipo</div>
+    <a href="#operators">Operadores</a>
+    <a href="#users">Usuarios</a>
+    <a href="#services">Servicios</a>
+    <a href="#crews">Equipos de conductores</a>
+    <div class="grp">Promociones</div>
+    <a class="sub" href="#promos/referral">Programas de referidos</a>
+    <a class="sub" href="#promos/discount">Programas de descuento</a>
+    <a class="sub" href="#promos/topup">Cupones de recarga</a>
+    <div class="grp">Crecimiento</div>
+    <a href="#notifications">Notificaciones de la app</a>
+    <a href="#marketing">Servicios de marketing</a>
+    <a href="#apis">APIs para desarrolladores</a>
+    <a href="#apps">Aplicaciones y servicios</a>
+    <a href="#hubspot">Integración HubSpot</a>
+    <div class="grp">Facturación</div>
+    <a class="sub" href="#balance">Plan y saldo</a>
+    <a class="sub" href="#billing">Historial de facturación</a>
+    <div class="grp">Configuración de compañía</div>
+    <a class="sub" href="#settings">Configuración</a>
+    <a class="sub" href="#zone">Área operacional</a>
+    <a class="sub" href="#gateways">Pasarelas de pago</a>
+    <a class="sub" href="#data">Datos y respaldo</a>
+  </aside>
+  <div class="main">
+    <div class="demo-bar" id="demoBar" hidden>Modo demo: los datos se guardan solo en este navegador. Configurá Supabase en <code>js/config.js</code> para producción.</div>
+    <div class="top">
+      <button class="menu-btn" onclick="document.getElementById('side').classList.toggle('open')">☰</button>
+      <strong id="crumb" class="grow">Panel</strong>
+      <span class="muted" id="clock"></span>
+      <button class="btn ghost sm" id="logout" hidden>Salir</button>
+    </div>
+    <div class="content" id="view"></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/db.js"></script>
+<script src="../js/ui.js"></script>
+<script src="../js/auth.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

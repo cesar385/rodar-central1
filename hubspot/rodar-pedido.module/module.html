@@ -1,0 +1,7 @@
+{# Módulo HubSpot CMS: inserta la app de pedidos de Rodar en cualquier página o landing #}
+<div class="rodar-embed" style="max-width:{{ module.max_width }}px;margin:0 auto">
+  {% if module.title %}<h2 style="text-align:center">{{ module.title }}</h2>{% endif %}
+  <iframe src="{{ module.app_url }}" title="Pedí tu viaje"
+          style="width:100%;height:{{ module.height }}px;border:0;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.08)"
+          allow="geolocation" loading="lazy"></iframe>
+</div>

@@ -1,0 +1,7 @@
+[
+  { "name": "title", "label": "Título", "type": "text", "default": "Pedí tu remis online" },
+  { "name": "app_url", "label": "URL de la app de pasajeros", "type": "text", "required": true,
+    "default": "https://TU-USUARIO.github.io/rodar-hub/pasajero/" },
+  { "name": "height", "label": "Alto (px)", "type": "number", "default": 900, "min": 500, "max": 1600 },
+  { "name": "max_width", "label": "Ancho máximo (px)", "type": "number", "default": 560 }
+]

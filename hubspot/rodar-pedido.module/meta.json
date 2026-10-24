@@ -1,0 +1,11 @@
+{
+  "label": "Rodar · Pedido de viaje",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Inserta la app web de pedidos de Rodar (alojada en GitHub Pages).",
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "content_types": ["SITE_PAGE", "LANDING_PAGE", "BLOG_POST"],
+  "is_available_for_new_content": true,
+  "icon": "fontawesome-5.14.0:Car:Solid"
+}
